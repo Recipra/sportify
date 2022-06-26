@@ -7,6 +7,7 @@ import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
+import { passUserToView } from './middleware/middleware.js'
 
 // connect to MongoDB with mongoose
 import('./config/database.js')
@@ -17,6 +18,7 @@ import('./config/passport.js')
 // require routes
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
+import { router as basketballRouter } from './routes/basketball.js'
 
 // create the express app
 const app = express()
@@ -38,6 +40,7 @@ app.use(
     path.join(path.dirname(fileURLToPath(import.meta.url)), 'public')
   )
 )
+app.use(passUserToView)
 
 // session middleware
 app.use(
@@ -58,6 +61,7 @@ app.use(passport.session())
 // router middleware
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
+app.use('/basketball', basketballRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
