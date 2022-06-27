@@ -4,6 +4,14 @@
 
 <section>
   <h1>Welcome to Sportify Basketball</h1>
+  <% profiles.forEach(profile => { %>
+    <a href="/basketball/<%= profile._id %>"><%= profile.name %></a><% if (profile.roster.length === 0) { %>
+      has joined Sportify!
+    <% } else { %>
+      's newest addition to their roster:
+    <% } %>
+  <% }) %>
+  </ul>
 </section>
 
 <%- include('../partials/footer') %>
