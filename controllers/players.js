@@ -1,12 +1,16 @@
+import { Profile } from "../models/profile.js"
 import { Player } from "../models/player.js"
 
 function newPlayer(req, res) {
-  Player.find({})
-  .then(players => {
-    res.render('players/new', {
-      title: 'Add a Player',
-      players,
-      user: req.user ? req.user : null
+  Profile.findById(req.user.profile)
+  .then(profile => {
+    Player.find({_id: {$nin : profile.roster }})
+    .then(players => {
+      res.render('players/new', {
+        title: 'Add a Player',
+        players,
+        user: req.user ? req.user : null
+      })
     })
   })
   .catch(error => {
