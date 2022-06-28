@@ -5,7 +5,8 @@ function newPlayer(req, res) {
   .then(players => {
     res.render('players/new', {
       title: 'Add a player',
-      players
+      players,
+      user: req.user ? req.user : null
     })
   })
   .catch(error => {

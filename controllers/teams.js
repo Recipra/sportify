@@ -5,7 +5,8 @@ function newTeam(req, res) {
   .then(teams => {
     res.render('teams/new', {
       title: 'Add a Team',
-      teams
+      teams,
+      user: req.user ? req.user : null
     })
   })
   .catch(error => {
