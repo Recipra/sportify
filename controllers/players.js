@@ -4,7 +4,7 @@ function newPlayer(req, res) {
   Player.find({})
   .then(players => {
     res.render('players/new', {
-      title: 'Add a player',
+      title: 'Add a Player',
       players,
       user: req.user ? req.user : null
     })
@@ -31,7 +31,8 @@ function show(req, res) {
   .then(player => {
     res.render('players/show', {
       title: `${player.name}`,
-      player
+      player,
+      user: req.user ? req.user : null
     })
   })
   .catch(err => {

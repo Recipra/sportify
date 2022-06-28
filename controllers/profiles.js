@@ -1,5 +1,6 @@
 import { Profile } from "../models/profile.js"
 import { Team } from "../models/team.js"
+import { Player } from "../models/player.js"
 
 function index(req, res) {
   Profile.find({})
@@ -18,15 +19,22 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
   .populate('favTeams')
+  .populate('roster')
   .then(profile => {
     Team.find({_id: {$nin: profile.favTeams}})
     .then(favTeams => {
-      const self = profile._id.equals(req.user.profile._id)
-      res.render('profiles/show', {
-        title: `Profile: ${profile.name}`,
-        profile,
-        favTeams,
-        self
+      Player.find({_id: {$nin: profile.roster}})
+      .then(player => {
+        const self = profile._id.equals(req.user.profile._id)
+        const seperateNames = profile.name.split(' ')
+        res.render('profiles/show', {
+          title: `Profile: ${profile.name}`,
+          profile,
+          favTeams,
+          player,
+          firstName: seperateNames[0],
+          self
+        })
       })
     })
   })
@@ -66,9 +74,42 @@ function deleteFavTeam(req, res) {
   })
 }
 
+function addToRoster(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    console.log('PROFILE ROSTER', profile.roster)
+    profile.roster.push(req.body.playerId)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/profiles')
+  })
+}
+
+function deletePlayer(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.roster.remove({_id: req.params.playerId})
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
   addToFavTeams,
-  deleteFavTeam
+  deleteFavTeam,
+  addToRoster,
+  deletePlayer
 }

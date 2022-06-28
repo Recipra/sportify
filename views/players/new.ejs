@@ -28,16 +28,23 @@
   <h1><%= title %></h1>
   <form id="new-form" action="/players" method="POST">
     <label for="name-input">Player Name:</label>
-    <input type="text" name="name" id="name-input">
+    <input type="text" name="name" id="name-input" autocomplete="off">
     <label for="year-input">Year:</label>
-    <input type="number" name="year" id="year-input">
+    <input type="number" name="year" id="year-input" autocomplete="off">
     <label for="team-input">Team:</label>
-    <input type="text" name="team" id="team-input">
+    <input type="text" name="team" id="team-input" autocomplete="off">
     <button type="submit">Add Player</button>
   </form>
+  <h2>Recently added players:</h2>
   <ul>
     <% players.forEach(player => { %>
-      <li><a href="/players/<%= player._id %>"><%= player.name %></a>, player for the <%= player.team %> in <%= player.year %></li>
+      <li>
+        <a href="/players/<%= player._id %>"><%= player.name %></a>, player for the <%= player.team %> in <%= player.year %>
+        <form action="/profiles/<%= user.profile._id %>/roster" method="POST">
+          <input name="playerId" type="hidden" value="<%= player._id %>" hidden="true">
+          <button type="submit">Add to Roster</button>
+        </form>
+      </li>
     <% }) %>
   </ul>
 </main>

@@ -35,6 +35,16 @@
       <button type="submit">Add to Favorites</button>
     </form>
   <% } %>
+  <h2><%= firstName %>'s Roster:</h2>
+  <ul>
+    <% profile.roster.forEach(player => { %>
+      <li><%= player.name %>, player for the <%= player.team %> in <%= player.year %>
+        <form action="/profiles/<%= profile._id %>/roster/<%= player._id %>?_method=DELETE" class="delete-form" method="POST">
+          <button type="submit">Remove Player</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
 </main>
 
 <%- include('../partials/footer') %>
