@@ -15,7 +15,7 @@
   </form>
   <ul>
     <% players.forEach(player => { %>
-      <li><%= player.name %>, player for the <%= player.team %> in <%= player.year %></li>
+      <li><a href="/players/<%= player._id %>"><%= player.name %></a>, player for the <%= player.team %> in <%= player.year %></li>
     <% }) %>
   </ul>
 </main>

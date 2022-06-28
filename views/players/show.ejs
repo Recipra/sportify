@@ -1,0 +1,17 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/players/show.css">
+<%- include('../partials/nav') %>
+
+<main>
+  <% if (player.avatar) { %>
+    <div>
+      <img class="player-avatar" src="<%= player.avatar %>" alt="<%= player.name %>'s Photo">
+    </div>
+  <% } %>
+  <h1><%= player.name %></h1>
+  <h2><%= player.team %>, <%= player.year %></h2>
+  <h3>Player Info</h3>
+  <h4><%= player.stats %></h4>
+</main>
+
+<%- include('../partials/footer') %>
