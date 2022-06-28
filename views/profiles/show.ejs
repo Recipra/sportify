@@ -27,7 +27,7 @@
     <form action="/profiles/<%= profile._id %>/favTeams" method="POST">
       Add one of your favorite teams:
       <select name="favTeamId">
-          <option selected>-------</option>
+          <option selected>------------------------------</option>
         <% favTeams.forEach(favTeam => { %>
           <option value="<%= favTeam._id %>"><%= favTeam.name %></option>
         <% }) %>

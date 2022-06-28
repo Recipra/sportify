@@ -7,6 +7,7 @@ const router = Router()
 router.get('/', isLoggedIn, profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 router.post('/:id/favTeams', profilesCtrl.addToFavTeams)
+router.delete('/:id/favTeams/:favTeamId', profilesCtrl.deleteFavTeam)
 
 export {
   router

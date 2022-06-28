@@ -51,8 +51,24 @@ function addToFavTeams(req, res) {
   })
 }
 
+function deleteFavTeam(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.favTeams.remove({_id: req.params.favTeamId})
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
   show,
-  addToFavTeams
+  addToFavTeams,
+  deleteFavTeam
 }
