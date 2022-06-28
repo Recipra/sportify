@@ -8,7 +8,33 @@
       <img class="profile-avatar" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
     </div>
   <% } %>
-  <h1>It's <%= self ? "you" : profile.name %>!</h1>
+  <h1><%= profile.name %></h1>
+  <h2><% if (profile.favTeams.length === 1) { %>
+    Favorite team:
+  <% } else { %>
+    Favorite teams:
+  <% } %></h2>
+  <ul>
+    <% profile.favTeams.forEach(favTeam => { %>
+      <li><%= favTeam.name %>
+        <form action="/profiles/<%= profile._id %>/favTeams/<%= favTeam._id %>?_method=DELETE" class="delete-form" method="POST">
+          <button type="submit">Delete Team</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+  <% if (self) { %>
+    <form action="/profiles/<%= profile._id %>/favTeams" method="POST">
+      Add one of your favorite teams:
+      <select name="favTeamId">
+          <option selected>-------</option>
+        <% favTeams.forEach(favTeam => { %>
+          <option value="<%= favTeam._id %>"><%= favTeam.name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">Add to Favorites</button>
+    </form>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>

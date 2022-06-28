@@ -14,7 +14,7 @@ const profileSchema = new Schema({
   name: String,
   avatar: String,
   roster: [{type: Schema.Types.ObjectId, ref: 'Player'}],
-  teams: [{type: Schema.Types.ObjectId, ref: 'Team'}],
+  favTeams: [{type: Schema.Types.ObjectId, ref: 'Team'}],
   reviews: [reviewSchema]
 }, {
   timestamps: true

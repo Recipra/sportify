@@ -1,4 +1,5 @@
 import { Profile } from "../models/profile.js"
+import { Team } from "../models/team.js"
 
 function index(req, res) {
   Profile.find({})
@@ -16,12 +17,17 @@ function index(req, res) {
 
 function show(req, res) {
   Profile.findById(req.params.id)
+  .populate('favTeams')
   .then(profile => {
-    const self = profile._id.equals(req.user.profile._id)
-    res.render('profiles/show', {
-      title: `Profile: ${profile.name}`,
-      profile,
-      self
+    Team.find({_id: {$nin: profile.favTeams}})
+    .then(favTeams => {
+      const self = profile._id.equals(req.user.profile._id)
+      res.render('profiles/show', {
+        title: `Profile: ${profile.name}`,
+        profile,
+        favTeams,
+        self
+      })
     })
   })
   .catch(err => {
@@ -30,7 +36,23 @@ function show(req, res) {
   })
 }
 
+function addToFavTeams(req, res) {
+  Profile.findById(req.params.id)
+  .then(profile => {
+    profile.favTeams.push(req.body.favTeamId)
+    profile.save()
+    .then(() => {
+      res.redirect(`/profiles/${profile._id}`)
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/profiles')
+  })
+}
+
 export {
   index,
-  show
+  show,
+  addToFavTeams
 }
