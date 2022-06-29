@@ -16,8 +16,9 @@
   <% } %></h2>
   <ul>
     <% profile.favTeams.forEach(favTeam => { %>
-      <li><%= favTeam.name %>
+      <li>
         <form action="/profiles/<%= profile._id %>/favTeams/<%= favTeam._id %>?_method=DELETE" class="delete-form" method="POST">
+          <%= favTeam.name %>
           <button type="submit">Delete Team</button>
         </form>
       </li>
@@ -38,8 +39,9 @@
   <h2><%= firstName %>'s Roster:</h2>
   <ul>
     <% profile.roster.forEach(player => { %>
-      <li><%= player.name %>, player for the <%= player.team %> in <%= player.year %>
+      <li>
         <form action="/profiles/<%= profile._id %>/roster/<%= player._id %>?_method=DELETE" class="delete-form" method="POST">
+          <%= player.name %>, player for the <%= player.team %> in <%= player.year %>
           <button type="submit">Remove Player</button>
         </form>
       </li>
