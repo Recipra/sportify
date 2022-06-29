@@ -32,8 +32,12 @@
   <% } %>
   <h1><%= player.name %></h1>
   <h2><%= player.team %>, <%= player.year %></h2>
-  <h3>Player Info</h3>
-  <h4><%= player.stats %></h4>
+  <h3>Player's Season Stats:</h3>
+  <h4>Games Played: <%= games %></h4>
+  <h4>Points: <%= points %></h4>
+  <h4>Rebounds: <%= rebounds %></h4>
+  <h4>Assists: <%= assists %></h4>
+  <h4>Blocks: <%= blocks %></h4>
 </main>
 
 <%- include('../partials/footer') %>

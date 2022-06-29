@@ -4,11 +4,10 @@ const Schema = mongoose.Schema
 
 const playerSchema = new Schema({
   name: String,
-  avatar: String,
+  image: String,
   year: Number,
   team: String,
   stats: String,
-  firstOfKind: Boolean,
   owner: {type: Schema.Types.ObjectId, ref: 'Profile'}
 }, {
   timestamps: true

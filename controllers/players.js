@@ -43,9 +43,20 @@ function create(req, res) {
 function show(req, res) {
   Player.findById(req.params.id)
   .then(player => {
+    const playerStats = player.stats.split(', ')
+    const games = playerStats[0]
+    const points = playerStats[1]
+    const rebounds = playerStats[2]
+    const assists = playerStats[3]
+    const blocks = playerStats[4]
     res.render('players/show', {
       title: `${player.name}`,
       player,
+      games,
+      points,
+      rebounds,
+      assists,
+      blocks,
       user: req.user ? req.user : null
     })
   })
