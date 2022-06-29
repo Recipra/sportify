@@ -1,0 +1,17 @@
+html {
+  background: url(https://wallpaperaccess.com/full/3694273.jpg);
+  background-size: cover;
+}
+
+body{
+  color: whitesmoke;
+}
+
+.profile-link {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  color: orange;
+}
