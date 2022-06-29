@@ -27,15 +27,26 @@
 <main>
   <h1><%= title %></h1>
   <form id="new-form" action="/players" method="POST">
-    <label for="name-input">Player Name:</label>
+    <label for="name-input">Player Name: </label>
     <input type="text" name="name" id="name-input" autocomplete="off">
-    <label for="year-input">Year:</label>
+    <label for="year-input">Year: </label>
     <input type="number" name="year" id="year-input" autocomplete="off">
-    <label for="team-input">Team:</label>
+    <label for="team-input">Team: </label>
     <input type="text" name="team" id="team-input" autocomplete="off">
-    <label for="stats-input">Season Stats:</label>
-    <input type="text" name="stats" id="stats-input" autocomplete="off">
-    <button type="submit">Add Player</button>
+    Season Stats:
+    <div class="stats-input">
+      <label for="games-input">Games Played: </label>
+      <input type="text" name="games" id="games-input" autocomplete="off">
+      <label for="points-input">Points: </label>
+      <input type="text" name="points" id="points-input" autocomplete="off">
+      <label for="rebounds-input">Rebounds: </label>
+      <input type="text" name="rebounds" id="rebounds-input" autocomplete="off">
+      <label for="assists-input">Assists: </label>
+      <input type="text" name="assists" id="assists-input" autocomplete="off">
+      <label for="blocks-input">Blocks: </label>
+      <input type="text" name="blocks" id="blocks-input" autocomplete="off">
+      <button type="submit">Add Player</button>
+    </div>
   </form>
   <h2>Recently added players:</h2>
   <ul>

@@ -1,6 +1,21 @@
 import { Profile } from "../models/profile.js"
 import { Player } from "../models/player.js"
 
+function index(req, res) {
+  Player.find({})
+  .then(players => {
+    res.render('players/index', {
+      title: 'Sportify Basketball',
+      players,
+      user: req.user ? req.user : null
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/basketball')
+  })
+}
+
 function newPlayer(req, res) {
   Profile.findById(req.user.profile)
   .then(profile => {
@@ -43,31 +58,48 @@ function create(req, res) {
 function show(req, res) {
   Player.findById(req.params.id)
   .then(player => {
-    const playerStats = player.stats.split(', ')
-    const games = playerStats[0]
-    const points = playerStats[1]
-    const rebounds = playerStats[2]
-    const assists = playerStats[3]
-    const blocks = playerStats[4]
     res.render('players/show', {
       title: `${player.name}`,
       player,
-      games,
-      points,
-      rebounds,
-      assists,
-      blocks,
       user: req.user ? req.user : null
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/')
+    res.redirect('/players/new')
+  })
+}
+
+function edit(req, res) {
+  Player.findById(req.params.id)
+  .then(player => {
+    res.render('players/edit', {
+      title: `Edit ${player.name}, ${player.year}`,
+      player
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/players/new')
+  })
+}
+
+function update(req, res) {
+  Player.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(player => {
+    res.redirect(`/players/${req.params.id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/players')
   })
 }
 
 export {
+  index,
   newPlayer as new,
   create,
-  show
+  show,
+  edit,
+  update
 }

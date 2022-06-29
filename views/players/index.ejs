@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/players/show.css">
+<link rel="stylesheet" href="/stylesheets/players/index.css">
 
 <% if (!user) { %>
   <link rel="stylesheet" href="/stylesheets/siwg.css">
@@ -10,7 +10,7 @@
     <a href="/">Home Page</a>
     <a href="/basketball">Basketball</a>
     <a href="/teams/new">Add Team</a>
-    <a href="/players">All Players</a>
+    <a href="/players/new">Add Player</a>
     <a href="/profiles/<%= user.profile._id %>">My Profile</a>
     <% if (user) { %>
       <a href="/auth/logout">
@@ -25,22 +25,22 @@
     <% } %>
   </nav>
 <main>
-  <h1><%= player.name %></h1>
-  <% if (player.image) { %>
-    <div>
-      <img class="player-image" src="<%= player.image %>" alt="<%= player.name %>'s Photo">
-    </div>
-  <% } %>
-  <h2><%= player.team %>, <%= player.year %></h2>
-  <h3>Player's Season Stats:</h3>
-  <h4>Games Played: <%= player.games %></h4>
-  <h4>Points: <%= player.points %></h4>
-  <h4>Rebounds: <%= player.rebounds %></h4>
-  <h4>Assists: <%= player.assists %></h4>
-  <h4>Blocks: <%= player.blocks %></h4>
-  <a href="/players/<%= player._id %>/edit">
-    <button>Edit Player Stats</button>
-  </a>
+  <div class="cardContainer">
+    <% players.forEach(player => { %>
+      <a class="text-decoration-none" href="/players/<%= player._id %>">
+        <div class="card">
+          <% if (player.image) { %>
+            <img src="<%= player.image %>" alt="<%= player.name %>'s image">
+          <% } else { %>
+            <img src="https://picsum.photos/96" alt="A placeholder image">
+          <% } %>
+          <div class="card-body">
+            <h1 class="card-title"><%= player.name %></h1>
+          </div>
+        </div>
+      </a>
+    <% }) %>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
