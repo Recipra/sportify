@@ -16,6 +16,11 @@ function newTeam(req, res) {
 }
 
 function create(req, res) {
+  const teamName = `${req.body.name}`
+  const formattedName = teamName.toLowerCase().replace(/\w\S*/g, (text) => {
+    return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()
+  })
+  req.body.name = formattedName
   Team.create(req.body)
   .then(team => {
     res.redirect('/teams/new')
