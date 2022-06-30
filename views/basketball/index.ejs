@@ -35,12 +35,13 @@
           <% } else { %>
             <img src="https://picsum.photos/96" alt="A placeholder avatar">
           <% } %>
-          <%= profile.name %><% if (profile.roster.length === 0) { %>
-            has joined Sportify!
-          <% } else { %>
-            's newest addition to their roster:
-          <% } %>
-        </a>
+          </a>
+          <a 
+            href="/profiles/<%= profile._id %>" 
+            class="profile-link">
+              <%= profile.name %>
+          </a>
+          <%= (profile.roster.length === 0) ? "'s joined Sportify!" : "'s newest addition to their roster:" %>
       </div>
     <% }) %>
   </section>

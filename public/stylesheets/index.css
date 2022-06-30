@@ -1,0 +1,9 @@
+body {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/hHeEEOX/videoblocks-night-aerial-view-of-a-freeway-intersection-and-football-stadium-spartak-moscow-otkritie-arena_hgukbsfpb_thumbnail-1080_01.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: whitesmoke;
+  min-height: 100vh;
+}

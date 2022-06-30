@@ -6,6 +6,8 @@ Sportify is a database-functional application built with the vision of connectin
 
 ## <a href="https://sport-ify.herokuapp.com/basketball">Sportify Link</a>
 
+### <a href="https://trello.com/b/NBR6CQ3J/sportify">Trello Planning</a>
+
 ## Technologies Used
 
 - JavaScript
