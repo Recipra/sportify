@@ -7,6 +7,19 @@ body{
   color: whitesmoke;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main > section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .profile-link {
   color: whitesmoke;
   text-decoration: none;
@@ -14,4 +27,17 @@ body{
 
 .profile-link:hover {
   color: orange;
+}
+
+.profileCard {
+  border: solid whitesmoke 3px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  width: 80%;
+}
+
+.profileImg {
+  margin: 5px 400px 5px auto;
 }

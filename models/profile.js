@@ -13,7 +13,7 @@ const reviewSchema = new Schema({
 const profileSchema = new Schema({
   name: String,
   avatar: String,
-  roster: [{type: Schema.Types.ObjectId, ref: 'Player'}],
+  roster: [{type: Schema.Types.ObjectId, ref: 'Player', unique: true}],
   favTeams: [{type: Schema.Types.ObjectId, ref: 'Team'}],
   reviews: [reviewSchema]
 }, {

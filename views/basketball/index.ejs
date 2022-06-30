@@ -26,12 +26,12 @@
   </nav>
 <main>
   <h1>Welcome to Sportify Basketball</h1>
-  <div class="profileList">
+  <section class="profileList">
     <% profiles.forEach(profile => { %>
-      <a href="/profiles/<%= profile._id %>" class="profile-link">
-        <div class="profileCard">
+      <div class="profileCard">
+          <a href="/profiles/<%= profile._id %>" class="profile-link">
           <% if (profile.avatar) { %>
-            <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
+            <img class="profileImg" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
           <% } else { %>
             <img src="https://picsum.photos/96" alt="A placeholder avatar">
           <% } %>
@@ -40,11 +40,10 @@
           <% } else { %>
             's newest addition to their roster:
           <% } %>
-        </div>
-      </a>
+        </a>
+      </div>
     <% }) %>
-  </div>
-  </ul>
+  </section>
 </main>
 
 <%- include('../partials/footer') %>
