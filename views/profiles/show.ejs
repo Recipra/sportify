@@ -48,7 +48,7 @@
         <% if (player.image) { %>
           <img class="playerImg" src="<%= player.image %>" alt="<%= player.name %>'s avatar">
         <% } else { %>
-          <img src="https://picsum.photos/96" alt="A placeholder avatar">
+          <img class="playerImg" src="https://picsum.photos/96" alt="A placeholder avatar">
         <% } %>
         </a>
         <a 
@@ -60,8 +60,6 @@
         <form action="/profiles/<%= profile._id %>/roster/<%= player._id %>?_method=DELETE" class="delete-form" method="POST">
           <button type="submit">Remove Player</button>
         </form>
-      <% } else { %>
-        <a href="/players/<%= player._id %>"><%= player.name %></a>, player for the <%= player.team %> in <%= player.year %>
       <% } %>
     </div>
   <% }) %>

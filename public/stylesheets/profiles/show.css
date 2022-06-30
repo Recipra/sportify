@@ -8,9 +8,40 @@ body{
   min-height: 100vh;
 }
 
+.profile-avatar {
+  height: 150px;
+  border: solid whitesmoke 5px;
+  border-radius: 5px;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button {
+  background-color: #6072A6;
+  color: whitesmoke;
+  border: solid whitesmoke 2px;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
+select {
+  background-color: #6072A6;
+  color: whitesmoke;
+  border: solid whitesmoke 2px;
+  padding: 1.5px 6px;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
 }
 
 nav {
@@ -30,18 +61,42 @@ nav > a:hover {
   color: #a6b5e4;
 }
 
-.playerCard {
-  border: solid whitesmoke 3px;
-  border-radius: 15px;
+main {
+  margin-top: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+form {
+font-size: medium;
+}
+
+.rosterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerCard {
+  background-color: #f2b66db9;
+  border: solid whitesmoke 3px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
   margin: 20px;
-  width: 80%;
   font-size: 2em;
+  height: 600px;
+  width: 400px;
 }
 
 .playerImg {
   border: solid whitesmoke 2px;
-  border-radius: 50px;
+  width: 300px;
+  height: 375px;
 }
