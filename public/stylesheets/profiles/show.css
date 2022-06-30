@@ -1,0 +1,47 @@
+body{
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://wallpaperaccess.com/full/3694273.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: whitesmoke;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  background: #f2b66db9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  height: 3em;
+}
+
+nav > a {
+  margin-right: 10px;
+}
+
+nav > a:hover {
+  color: #a6b5e4;
+}
+
+.playerCard {
+  border: solid whitesmoke 3px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  width: 80%;
+  font-size: 2em;
+}
+
+.playerImg {
+  border: solid whitesmoke 2px;
+  border-radius: 50px;
+}
