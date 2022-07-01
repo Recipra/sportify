@@ -10,9 +10,9 @@
   <% } %>
   <h1><%= profile.name %></h1>
   <h2><% if (profile.favTeams.length === 1) { %>
-    Favorite team:
+    favorite team:
   <% } else { %>
-    Favorite teams:
+    favorite teams:
   <% } %></h2>
   <ul>
     <% profile.favTeams.forEach(favTeam => { %>
@@ -20,7 +20,7 @@
         <% if (self) { %>
           <form action="/profiles/<%= profile._id %>/favTeams/<%= favTeam._id %>?_method=DELETE" class="delete-form" method="POST">
             <%= favTeam.name %>
-            <button type="submit">Delete Team</button>
+            <button type="submit">delete team.</button>
           </form>
         <% } else { %>
           <%= favTeam.name %>
@@ -30,17 +30,17 @@
   </ul>
   <% if (self) { %>
     <form action="/profiles/<%= profile._id %>/favTeams" method="POST">
-      Add one of your favorite teams:
+      add one of your favorite teams:
       <select name="favTeamId">
           <option selected>------------------------------</option>
         <% favTeams.forEach(favTeam => { %>
           <option value="<%= favTeam._id %>"><%= favTeam.name %></option>
         <% }) %>
       </select>
-      <button type="submit">Add to Favorites</button>
+      <button type="submit">add to favorites.</button>
     </form>
   <% } %>
-  <h2><%= firstName %>'s Roster:</h2>
+  <h2><%= firstName %>'s roster:</h2>
   <div class="rosterContainer">
     <% profile.roster.forEach(player => { %>
       <div class="playerCard">
@@ -58,7 +58,7 @@
           </a>
         <% if (self) { %>
           <form action="/profiles/<%= profile._id %>/roster/<%= player._id %>?_method=DELETE" class="delete-form" method="POST">
-            <button type="submit">Remove Player</button>
+            <button type="submit">remove player.</button>
           </form>
         <% } %>
       </div>
