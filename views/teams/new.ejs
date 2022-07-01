@@ -7,14 +7,14 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home Page</a>
-    <a href="/basketball">Basketball</a>
-    <a href="/teams/new">Add Team</a>
-    <a href="/players/new">Add Player</a>
-    <a href="/profiles/<%= user.profile._id %>">My Profile</a>
+    <a href="/">home page.</a>
+    <a href="/basketball">basketball.</a>
+    <a href="/teams/new">add team.</a>
+    <a href="/players">all players.</a>
+    <a href="/profiles/<%= user.profile._id %>">my profile.</a>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        <button type="submit">logout.</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -25,12 +25,12 @@
     <% } %>
   </nav>
 <main>
-	<h1><%= title %></h1>
-  <p>Enter a new favorite team of yours!</p>
+	<h1>add a team</h1>
+  <p>enter a new favorite team of yours</p>
   <form id="add-team-form" action="/teams" method="POST">
-    <label for="name-input">Name:</label>
+    <label for="name-input">name:</label>
     <input type="text" name="name" id="name-input" autocomplete="off">
-    <button type="submit">Add Team</button>
+    <button type="submit">add team</button>
   </form>
   <ul>
     <% teams.forEach(team => { %>

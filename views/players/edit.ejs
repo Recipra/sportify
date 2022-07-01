@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/players/show.css">
+<link rel="stylesheet" href="/stylesheets/players/new.css">
 
 <% if (!user) { %>
   <link rel="stylesheet" href="/stylesheets/siwg.css">
@@ -7,14 +7,14 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home Page</a>
-    <a href="/basketball">Basketball</a>
-    <a href="/teams/new">Add Team</a>
-    <a href="/players/new">Add Player</a>
-    <a href="/profiles/<%= user.profile._id %>">My Profile</a>
+    <a href="/">home page.</a>
+    <a href="/basketball">basketball.</a>
+    <a href="/teams/new">add team.</a>
+    <a href="/players/new">add player.</a>
+    <a href="/profiles/<%= user.profile._id %>">my profile.</a>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        <button type="submit">logout.</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -26,27 +26,29 @@
   </nav>
 <main>
   <h1><%= player.name %>: <%= player.team %>, <%= player.year %></h1>
-  <h2>Player's Season Stats:</h2>
+  <h2><%= player.name %>'s season stats:</h2>
   <form action="/players/<%= player._id %>?_method=PUT" method="POST">
     <h3>
-      Games Played:
+      games played:
       <input type="text" name="games" value="<%= player.games %>" autocomplete="off"></h3>
     <h3>
-      Points:
+      points:
       <input type="text" name="points" value="<%= player.points %>" autocomplete="off"></h3>
     <h3>
-      Rebounds:
+      rebounds:
       <input type="text" name="rebounds" value="<%= player.rebounds %>" autocomplete="off"></h3>
     <h3>
-      Assists:
+      assists:
       <input type="text" name="assists" value="<%= player.assists %>" autocomplete="off"></h3>
     <h3>
-      Blocks:
+      blocks:
       <input type="text" name="blocks" value="<%= player.blocks %>" autocomplete="off"></h3>
-    <button type="submit">Update Player Stats</button>
-    <a href="/players/<%= player._id %>">
-      <button>Cancel</button>
-    </a>
+    <div class="formButtons">
+      <button type="submit">update player stats</button>
+      <a href="/players/<%= player._id %>">
+        <button>cancel</button>
+      </a>
+    </div>
   </form>
 </main>
 

@@ -33,22 +33,22 @@
     <h2><%= player.team %>, <%= player.year %></h2>
   </div>
   <div class="playerStats">
-    <h3>Player's Season Stats:</h3>
-    <h4>Games Played: <%= player.games %></h4>
-    <h4>Points: <%= player.points %></h4>
-    <h4>Rebounds: <%= player.rebounds %></h4>
-    <h4>Assists: <%= player.assists %></h4>
-    <h4>Blocks: <%= player.blocks %></h4>
+    <h3><%= player.name %>'s season stats:</h3>
+    <h4>games played: <%= player.games %></h4>
+    <h4>points: <%= player.points %></h4>
+    <h4>rebounds: <%= player.rebounds %></h4>
+    <h4>assists: <%= player.assists %></h4>
+    <h4>blocks: <%= player.blocks %></h4>
   </div>
   <a href="/players/<%= player._id %>/edit">
-    <button>Edit Player Stats</button>
+    <button>edit player stats</button>
   </a>
   <% if (user.profile.roster.some(person => person._id.equals(player._id))) { %>
     
   <% } else { %>
     <form action="/profiles/<%= user.profile._id %>/roster" method="POST">
       <input name="playerId" type="hidden" value="<%= player._id %>" hidden="true">
-      <button type="submit">Add to Roster</button>
+      <button type="submit">add to roster</button>
     </form>
   <% } %>
 </main>
