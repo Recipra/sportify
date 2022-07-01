@@ -24,8 +24,13 @@ Sportify is a database-functional application built with the vision of connectin
 - Mongoose
 - Google OAuth
 
+## Credits
+
+HUGE thank you to Mauricio in my General Assembly cohort for teaching me a bunch of techniques to style this bad boy.
+
 ## Ice Box
 
+- Fill the empty space better with the cards
 - Add review functionality for profiles
 - Implement API utilization
 - Clicking on a card flips it to the back
