@@ -7,14 +7,14 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home Page</a>
-    <a href="/basketball">Basketball</a>
-    <a href="/teams/new">Add Team</a>
-    <a href="/players">All Players</a>
-    <a href="/profiles/<%= user.profile._id %>">My Profile</a>
+    <a href="/">home page.</a>
+    <a href="/basketball">basketball.</a>
+    <a href="/teams/new">add team.</a>
+    <a href="/players">all players.</a>
+    <a href="/profiles/<%= user.profile._id %>">my profile.</a>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        <button type="submit">logout.</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -25,11 +25,11 @@
     <% } %>
   </nav>
 <main>
-  <h1>Welcome to Sportify Basketball</h1>
+  <h1>welcome to sportify basketball</h1>
   <section class="profileList">
-    <% profiles.forEach(profile => { %>
+    <% profiles.forEach((profile, index) => { %>
       <div class="profileCard">
-          <a href="/profiles/<%= profile._id %>" class="profile-link">
+          <a href="/profiles/<%= profile._id %>">
           <% if (profile.avatar) { %>
             <img class="profileImg" src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
           <% } else { %>
@@ -41,7 +41,7 @@
             class="profile-link">
               <%= profile.name %>
           </a>
-          <%= (profile.roster.length === 0) ? "'s joined Sportify!" : "'s newest addition to their roster:" %>
+          <%= (lastPlayers[index] === null) ? "'s joined sportify" : `'s newest addition to their roster: ${lastPlayers[index]}` %>
       </div>
     <% }) %>
   </section>

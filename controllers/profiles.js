@@ -78,7 +78,7 @@ function addToRoster(req, res) {
   Profile.findById(req.params.id)
   .populate('roster')
   .then(profile => {
-    profile.roster.push(req.body.playerId)
+    profile.roster.unshift(req.body.playerId)
     profile.save()
     .then(() => {
       res.redirect(`/profiles/${profile._id}`)
