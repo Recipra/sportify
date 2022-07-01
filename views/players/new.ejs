@@ -1,5 +1,5 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/flights/new.css">
+<link rel="stylesheet" href="/stylesheets/players/new.css">
 
 <% if (!user) { %>
   <link rel="stylesheet" href="/stylesheets/siwg.css">
@@ -7,14 +7,14 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home Page</a>
-    <a href="/basketball">Basketball</a>
-    <a href="/teams/new">Add Team</a>
-    <a href="/players/new">Add Player</a>
-    <a href="/profiles/<%= user.profile._id %>">My Profile</a>
+    <a href="/">home page.</a>
+    <a href="/basketball">basketball.</a>
+    <a href="/teams/new">add team.</a>
+    <a href="/players">all players.</a>
+    <a href="/profiles/<%= user.profile._id %>">my profile.</a>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        <button type="submit">logout.</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -25,37 +25,39 @@
     <% } %>
   </nav>
 <main>
-  <h1><%= title %></h1>
+  <h1>add a player</h1>
   <form id="new-form" action="/players" method="POST">
-    <label for="name-input">Player Name: </label>
-    <input type="text" name="name" id="name-input" autocomplete="off">
-    <label for="year-input">Year: </label>
-    <input type="number" name="year" id="year-input" autocomplete="off">
-    <label for="team-input">Team: </label>
-    <input type="text" name="team" id="team-input" autocomplete="off">
-    Season Stats:
+    <div class="basic-info-input">
+      <label for="name-input">player name: </label>
+      <input type="text" name="name" id="name-input" autocomplete="off">
+      <label for="year-input">year: </label>
+      <input type="number" name="year" id="year-input" autocomplete="off">
+      <label for="team-input">team: </label>
+      <input type="text" name="team" id="team-input" autocomplete="off">
+    </div>
+    <h3>season stats:</h3>
     <div class="stats-input">
-      <label for="games-input">Games Played: </label>
+      <label for="games-input">games played: </label>
       <input type="text" name="games" id="games-input" autocomplete="off">
-      <label for="points-input">Points: </label>
+      <label for="points-input">points: </label>
       <input type="text" name="points" id="points-input" autocomplete="off">
-      <label for="rebounds-input">Rebounds: </label>
+      <label for="rebounds-input">rebounds: </label>
       <input type="text" name="rebounds" id="rebounds-input" autocomplete="off">
-      <label for="assists-input">Assists: </label>
+      <label for="assists-input">assists: </label>
       <input type="text" name="assists" id="assists-input" autocomplete="off">
-      <label for="blocks-input">Blocks: </label>
+      <label for="blocks-input">blocks: </label>
       <input type="text" name="blocks" id="blocks-input" autocomplete="off">
-      <button type="submit">Add Player</button>
+      <button type="submit">add player</button>
     </div>
   </form>
-  <h2>Recently added players:</h2>
+  <h2>recently added players:</h2>
   <ul>
     <% players.forEach(player => { %>
       <li>
         <form action="/profiles/<%= user.profile._id %>/roster" method="POST">
           <a href="/players/<%= player._id %>"><%= player.name %></a>, player for the <%= player.team %> in <%= player.year %>
           <input name="playerId" type="hidden" value="<%= player._id %>" hidden="true">
-          <button type="submit">Add to Roster</button>
+          <button type="submit">add to roster</button>
         </form>
       </li>
     <% }) %>
