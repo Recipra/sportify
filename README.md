@@ -1,6 +1,12 @@
 # Sportify
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+<img src="https://i.imgur.com/la8z51N.png" alt="Sportify Home Page">
+
+<img src="https://i.imgur.com/gLa0zIX.png" alt="Sportify Basketball Index Page">
+
+<img src="https://i.imgur.com/iGIe7pV.png" alt="Sportify Profile View">
+
+<img src="https://i.imgur.com/yqJKrwk.png" alt="Sportify Player Card View">
 
 Sportify is a database-functional application built with the vision of connecting those that enjoy sports and allowing them to "collect" their favorite players. Each user is given a profile, where they can view their roster of favorite players and even add their favorite teams. If they don't see a team or player they want, they can add it!
 
