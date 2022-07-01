@@ -26,8 +26,13 @@
   </nav>
 <main>
   <h1><%= player.name %>: <%= player.team %>, <%= player.year %></h1>
-  <h2><%= player.name %>'s season stats:</h2>
   <form action="/players/<%= player._id %>?_method=PUT" method="POST">
+    <h2>change image?</h2>
+      <div class="basic-info-input">
+        <label for="image-input">image url:</label>
+        <input type="text" name="image" value="<%= player.image %> " autocomplete="off">
+      </div>
+    <h2><%= player.name %>'s season stats:</h2>
     <h3>
       games played:
       <input type="text" name="games" value="<%= player.games %>" autocomplete="off"></h3>
