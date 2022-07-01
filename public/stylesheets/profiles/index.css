@@ -81,3 +81,7 @@ main > section {
   border: solid whitesmoke 2px;
   border-radius: 15px;
 }
+
+.profileImg:hover {
+  border: solid #f2b66d 2px;
+}

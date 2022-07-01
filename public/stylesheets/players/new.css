@@ -21,6 +21,10 @@ button {
   border-radius: 10px;
 }
 
+button:hover {
+  color: #6072A6;
+}
+
 nav {
   background: #f2b66db9;
   display: flex;
