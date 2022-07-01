@@ -7,14 +7,14 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home Page</a>
-    <a href="/basketball">Basketball</a>
-    <a href="/teams/new">Add Team</a>
-    <a href="/players/new">Add Player</a>
-    <a href="/profiles/<%= user.profile._id %>">My Profile</a>
+    <a href="/">home page.</a>
+    <a href="/basketball">basketball.</a>
+    <a href="/teams/new">add team.</a>
+    <a href="/players/new">add player.</a>
+    <a href="/profiles/<%= user.profile._id %>">my profile.</a>
     <% if (user) { %>
       <a href="/auth/logout">
-        <button type="submit">Logout</button>
+        <button type="submit">logout.</button>
       </a>
     <% } else { %>
       <a href="/auth/google" class="siwg-link">
@@ -25,20 +25,22 @@
     <% } %>
   </nav>
 <main>
-  <div class="cardContainer">
+  <div class="rosterContainer">
     <% players.forEach(player => { %>
-      <a class="text-decoration-none" href="/players/<%= player._id %>">
-        <div class="card">
+      <div class="playerCard">
+        <a href="/players/<%= player._id %>" class="player-link">
           <% if (player.image) { %>
-            <img src="<%= player.image %>" alt="<%= player.name %>'s image">
+            <img class="playerImg" src="<%= player.image %>" alt="<%= player.name %>'s avatar">
           <% } else { %>
-            <img src="https://picsum.photos/96" alt="A placeholder image">
+            <img class="playerImg" src="https://picsum.photos/96" alt="A placeholder avatar">
           <% } %>
-          <div class="card-body">
-            <h1 class="card-title"><%= player.name %></h1>
-          </div>
-        </div>
-      </a>
+        </a>
+        <a 
+          href="/players/<%= player._id %>" 
+          class="player-link">
+          <%= player.name %>, <%= player.team %> <%= player.year %>
+        </a>
+      </div>
     <% }) %>
   </div>
 </main>

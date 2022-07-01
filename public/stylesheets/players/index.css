@@ -1,0 +1,74 @@
+body{
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(https://wallpaperaccess.com/full/3694273.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: whitesmoke;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background-color: #6072A6;
+  color: whitesmoke;
+  border: solid whitesmoke 2px;
+  padding: 3px 6px;
+  border-radius: 10px;
+}
+
+nav {
+  background: #f2b66db9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  height: 3em;
+}
+
+nav > a {
+  margin-right: 10px;
+}
+
+nav > a:hover {
+  color: #a6b5e4;
+}
+
+main {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rosterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerCard {
+  background-color: #f2b66db9;
+  border: solid whitesmoke 3px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  margin: 20px;
+  font-size: 2em;
+  height: 600px;
+  width: 400px;
+}
+
+.playerImg {
+  border: solid whitesmoke 2px;
+  width: 300px;
+  height: 375px;
+}

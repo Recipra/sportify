@@ -41,29 +41,29 @@
     </form>
   <% } %>
   <h2><%= firstName %>'s Roster:</h2>
-<div class="rosterContainer">
-  <% profile.roster.forEach(player => { %>
-    <div class="playerCard">
-      <a href="/players/<%= player._id %>" class="player-link">
-        <% if (player.image) { %>
-          <img class="playerImg" src="<%= player.image %>" alt="<%= player.name %>'s avatar">
-        <% } else { %>
-          <img class="playerImg" src="https://picsum.photos/96" alt="A placeholder avatar">
+  <div class="rosterContainer">
+    <% profile.roster.forEach(player => { %>
+      <div class="playerCard">
+        <a href="/players/<%= player._id %>" class="player-link">
+          <% if (player.image) { %>
+            <img class="playerImg" src="<%= player.image %>" alt="<%= player.name %>'s avatar">
+          <% } else { %>
+            <img class="playerImg" src="https://picsum.photos/96" alt="A placeholder avatar">
+          <% } %>
+          </a>
+          <a 
+            href="/players/<%= player._id %>" 
+            class="player-link">
+            <%= player.name %>, <%= player.team %> <%= player.year %>
+          </a>
+        <% if (self) { %>
+          <form action="/profiles/<%= profile._id %>/roster/<%= player._id %>?_method=DELETE" class="delete-form" method="POST">
+            <button type="submit">Remove Player</button>
+          </form>
         <% } %>
-        </a>
-        <a 
-          href="/players/<%= player._id %>" 
-          class="player-link">
-          <%= player.name %>, <%= player.team %> <%= player.year %>
-        </a>
-      <% if (self) { %>
-        <form action="/profiles/<%= profile._id %>/roster/<%= player._id %>?_method=DELETE" class="delete-form" method="POST">
-          <button type="submit">Remove Player</button>
-        </form>
-      <% } %>
-    </div>
-  <% }) %>
-</div>
+      </div>
+    <% }) %>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
