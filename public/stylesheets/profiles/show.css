@@ -46,6 +46,7 @@ ul {
   align-items: center;
   flex-direction: column;
   gap: 1em;
+  font-size: medium;
 }
 
 nav {
